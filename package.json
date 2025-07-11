@@ -2,7 +2,7 @@
   "name": "educonnect",
   "version": "2.0.0",
   "description": "Modern Educational Management Platform",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
