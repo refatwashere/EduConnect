@@ -340,7 +340,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div align="center">
+<div style="text-align: center;">
+
+```md
 
 ## **🎉 NOW LIVE IN PRODUCTION! 🎉**
 
@@ -349,5 +351,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [🚀 Visit Live App](https://your-vercel-url.vercel.app) • [⭐ Star on GitHub](https://github.com/refatwashere/educonnect) • [🐦 Follow Updates](https://facebook.com/educonnect)
 
 ### **Ready to revolutionize education? The platform is live and ready for users! 🎓✨**
+
+```
 
 </div>
