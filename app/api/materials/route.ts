@@ -1,21 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { mockClasses } from '@/lib/mock-data'
-import { classSchema } from '@/lib/validations'
+import { mockMaterials } from '@/lib/mock-data'
+import { materialSchema } from '@/lib/validations'
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
+    const classId = searchParams.get('class_id')
     const teacherId = searchParams.get('teacher_id')
 
-    if (!teacherId) {
-      return NextResponse.json(
-        { error: 'Teacher ID is required' },
-        { status: 400 }
-      )
+    let materials = mockMaterials
+
+    if (classId) {
+      materials = materials.filter(m => m.class_id === classId)
+    }
+    
+    if (teacherId) {
+      materials = materials.filter(m => m.teacher_id === teacherId)
     }
 
-    const classes = mockClasses.filter(c => c.teacher_id === teacherId)
-    return NextResponse.json(classes)
+    return NextResponse.json(materials)
   } catch (error) {
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -27,26 +30,25 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    const validatedData = materialSchema.parse(body)
     
-    const validatedData = classSchema.parse(body)
-    
-    if (!body.teacher_id) {
+    if (!body.class_id || !body.teacher_id) {
       return NextResponse.json(
-        { error: 'Teacher ID is required' },
+        { error: 'Class ID and Teacher ID are required' },
         { status: 400 }
       )
     }
 
-    const newClass = {
+    const newMaterial = {
       id: Date.now().toString(),
       ...validatedData,
+      class_id: body.class_id,
       teacher_id: body.teacher_id,
-      student_count: 0,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     }
 
-    return NextResponse.json(newClass, { status: 201 })
+    return NextResponse.json(newMaterial, { status: 201 })
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json(

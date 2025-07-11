@@ -6,7 +6,7 @@ import { Sidebar } from '@/components/layout/sidebar'
 import { Header } from '@/components/layout/header'
 import { useAuthStore } from '@/stores/auth-store'
 
-export default function DashboardLayout({
+export default function ClassesLayout({
   children,
 }: {
   children: React.ReactNode

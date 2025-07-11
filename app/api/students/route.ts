@@ -1,21 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { mockClasses } from '@/lib/mock-data'
-import { classSchema } from '@/lib/validations'
+import { mockStudents } from '@/lib/mock-data'
+import { studentSchema } from '@/lib/validations'
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
-    const teacherId = searchParams.get('teacher_id')
+    const classId = searchParams.get('class_id')
 
-    if (!teacherId) {
-      return NextResponse.json(
-        { error: 'Teacher ID is required' },
-        { status: 400 }
-      )
+    if (classId) {
+      const students = mockStudents.filter(s => s.class_id === classId)
+      return NextResponse.json(students)
     }
 
-    const classes = mockClasses.filter(c => c.teacher_id === teacherId)
-    return NextResponse.json(classes)
+    return NextResponse.json(mockStudents)
   } catch (error) {
     return NextResponse.json(
       { error: 'Internal server error' },
@@ -27,26 +24,24 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    const validatedData = studentSchema.parse(body)
     
-    const validatedData = classSchema.parse(body)
-    
-    if (!body.teacher_id) {
+    if (!body.class_id) {
       return NextResponse.json(
-        { error: 'Teacher ID is required' },
+        { error: 'Class ID is required' },
         { status: 400 }
       )
     }
 
-    const newClass = {
+    const newStudent = {
       id: Date.now().toString(),
       ...validatedData,
-      teacher_id: body.teacher_id,
-      student_count: 0,
+      class_id: body.class_id,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     }
 
-    return NextResponse.json(newClass, { status: 201 })
+    return NextResponse.json(newStudent, { status: 201 })
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json(

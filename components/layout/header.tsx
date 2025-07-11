@@ -1,59 +1,46 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { Button } from '@/components/ui/button'
 import { useAuthStore } from '@/stores/auth-store'
-import { useToast } from '@/hooks/use-toast'
-import { APP_CONFIG, ROUTES } from '@/lib/constants'
+import { Button } from '@/components/ui/button'
 
 export function Header() {
-  const { user, teacher, signOut } = useAuthStore()
-  const { toast } = useToast()
-  const router = useRouter()
+  const { teacher, signOut } = useAuthStore()
 
   const handleSignOut = async () => {
     try {
       await signOut()
-      toast({
-        title: 'Success',
-        description: 'Signed out successfully'
-      })
-      router.push(ROUTES.HOME)
+      window.location.href = '/'
     } catch (error) {
-      toast({
-        title: 'Error',
-        description: 'Failed to sign out',
-        variant: 'destructive'
-      })
+      console.error('Sign out error:', error)
     }
   }
 
   return (
-    <header className="bg-white border-b border-gray-200">
-      <div className="px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <h1 className="text-xl font-bold text-gray-900">{APP_CONFIG.name}</h1>
-            <span className="text-sm text-gray-500">v{APP_CONFIG.version}</span>
-          </div>
-          
-          <div className="flex items-center space-x-4">
-            {teacher && (
-              <div className="text-right">
-                <p className="text-sm font-medium text-gray-900">{teacher.name}</p>
-                <p className="text-xs text-gray-500">{user?.email}</p>
-              </div>
-            )}
-            
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleSignOut}
-              className="text-gray-600 hover:text-gray-900"
-            >
-              Sign Out
-            </Button>
-          </div>
+    <header className="bg-white border-b px-6 py-4">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-lg font-semibold text-gray-900">
+            {teacher?.name ? `Welcome back, ${teacher.name}` : 'EduConnect'}
+          </h2>
+          <p className="text-sm text-gray-600">
+            {teacher?.subject && `${teacher.subject} Teacher`}
+          </p>
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          {teacher && (
+            <div className="text-right">
+              <p className="text-sm font-medium">{teacher.email}</p>
+              <Button 
+                onClick={handleSignOut}
+                variant="ghost" 
+                size="sm"
+                className="text-xs"
+              >
+                Sign Out
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </header>

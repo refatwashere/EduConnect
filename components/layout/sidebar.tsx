@@ -3,40 +3,41 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { ROUTES } from '@/lib/constants'
+import { Button } from '@/components/ui/button'
+import { useAuthStore } from '@/stores/auth-store'
 
 const navigation = [
-  {
-    name: 'Dashboard',
-    href: ROUTES.DASHBOARD,
-    icon: '📊'
-  },
-  {
-    name: 'Classes',
-    href: ROUTES.CLASSES,
-    icon: '📚'
-  },
-  {
-    name: 'Students',
-    href: ROUTES.STUDENTS,
-    icon: '👥'
-  },
-  {
-    name: 'Materials',
-    href: ROUTES.MATERIALS,
-    icon: '📄'
-  }
+  { name: 'Dashboard', href: '/dashboard', icon: '📊' },
+  { name: 'Classes', href: '/classes', icon: '📚' },
+  { name: 'Students', href: '/students', icon: '👥' },
+  { name: 'Materials', href: '/materials', icon: '📄' }
 ]
 
 export function Sidebar() {
   const pathname = usePathname()
+  const { teacher, signOut } = useAuthStore()
+
+  const handleSignOut = async () => {
+    try {
+      await signOut()
+      window.location.href = '/'
+    } catch (error) {
+      console.error('Sign out error:', error)
+    }
+  }
 
   return (
-    <aside className="w-64 bg-gray-50 border-r border-gray-200 min-h-screen">
-      <nav className="p-4 space-y-2">
+    <div className="flex flex-col h-full bg-white border-r">
+      <div className="p-6">
+        <h1 className="text-xl font-bold text-gray-900">EduConnect</h1>
+        {teacher && (
+          <p className="text-sm text-gray-600 mt-1">Welcome, {teacher.name}</p>
+        )}
+      </div>
+      
+      <nav className="flex-1 px-4 space-y-2">
         {navigation.map((item) => {
           const isActive = pathname === item.href
-          
           return (
             <Link
               key={item.name}
@@ -44,8 +45,8 @@ export function Sidebar() {
               className={cn(
                 'flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                 isActive
-                  ? 'bg-blue-100 text-blue-900 border border-blue-200'
-                  : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'text-gray-700 hover:bg-gray-100'
               )}
             >
               <span className="text-lg">{item.icon}</span>
@@ -54,6 +55,16 @@ export function Sidebar() {
           )
         })}
       </nav>
-    </aside>
+      
+      <div className="p-4 border-t">
+        <Button 
+          onClick={handleSignOut}
+          variant="outline" 
+          className="w-full"
+        >
+          Sign Out
+        </Button>
+      </div>
+    </div>
   )
 }

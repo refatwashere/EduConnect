@@ -1,54 +1,26 @@
-'use client'
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { formatDateTime } from '@/lib/utils'
 
 export function RecentActivity() {
   const activities = [
     {
-      id: 1,
-      type: 'student_update',
-      message: 'Updated progress for John Smith',
-      timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
-      class: 'Mathematics 101',
+      id: '1',
+      action: 'Created class',
+      target: 'Mathematics 101',
+      time: '2 hours ago'
     },
     {
-      id: 2,
-      type: 'material_upload',
-      message: 'Uploaded new assignment: Chapter 5 Quiz',
-      timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
-      class: 'English Literature',
+      id: '2',
+      action: 'Added material',
+      target: 'Chapter 1 Notes',
+      time: '1 day ago'
     },
     {
-      id: 3,
-      type: 'message_sent',
-      message: 'Sent message to Sarah Johnson\'s parents',
-      timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
-      class: 'Science Lab',
-    },
-    {
-      id: 4,
-      type: 'student_added',
-      message: 'Added new student: Mike Wilson',
-      timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
-      class: 'Mathematics 101',
-    },
-  ]
-
-  const getActivityIcon = (type: string) => {
-    switch (type) {
-      case 'student_update':
-        return '📊'
-      case 'material_upload':
-        return '📄'
-      case 'message_sent':
-        return '💬'
-      case 'student_added':
-        return '👤'
-      default:
-        return '📝'
+      id: '3',
+      action: 'Enrolled student',
+      target: 'John Smith',
+      time: '2 days ago'
     }
-  }
+  ]
 
   return (
     <Card>
@@ -58,16 +30,14 @@ export function RecentActivity() {
       <CardContent>
         <div className="space-y-4">
           {activities.map((activity) => (
-            <div key={activity.id} className="flex items-start space-x-3">
-              <div className="text-lg">{getActivityIcon(activity.type)}</div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900">
-                  {activity.message}
+            <div key={activity.id} className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <div className="flex-1">
+                <p className="text-sm">
+                  <span className="font-medium">{activity.action}</span>{' '}
+                  <span className="text-gray-600">{activity.target}</span>
                 </p>
-                <p className="text-xs text-gray-500">{activity.class}</p>
-                <p className="text-xs text-gray-400">
-                  {formatDateTime(activity.timestamp)}
-                </p>
+                <p className="text-xs text-gray-500">{activity.time}</p>
               </div>
             </div>
           ))}

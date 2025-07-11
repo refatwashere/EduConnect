@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { supabase } from '@/lib/supabase-client'
+import { apiClient } from '@/lib/api-client'
 import type { User } from '@supabase/supabase-js'
 import type { Teacher } from '@/types'
 
@@ -24,13 +24,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   signIn: async (email: string, password: string) => {
     set({ isLoading: true })
     try {
-      const response = await fetch('/api/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      })
-      
-      const result = await response.json()
+      const result = await apiClient.login(email, password)
       
       if (!result.success) {
         throw new Error(result.message || 'Login failed')
