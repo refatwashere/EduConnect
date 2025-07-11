@@ -15,7 +15,7 @@ The EduConnect dashboard is your central hub for managing classes, students, and
 ## 🎯 Getting Started
 
 ### First Login
-1. Visit [educonnect-refat.vercel.app](https://educonnect-refat.vercel.app)
+1. Visit [edu-connect-delta.vercel.app](https://edu-connect-delta.vercel.app)
 2. Enter credentials:
    - Email: `teacher@school.edu`
    - Password: `password`

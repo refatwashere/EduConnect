@@ -3,7 +3,7 @@
 **Current Status:** Successfully Deployed to Vercel  
 **Priority:** Test Production App & Implement Core Features  
 **Timeline:** 3 weeks for complete MVP functionality  
-**Live URL:** https://educonnect-refat.vercel.app
+**Live URL:** https://edu-connect-delta.vercel.app
 
 ---
 
@@ -14,7 +14,7 @@
 #### Verify Live Application
 ```bash
 # Access your deployed app
-# Visit: https://educonnect-refat.vercel.app
+# Visit: https://edu-connect-delta.vercel.app
 
 # Test login with default credentials:
 Email: teacher@school.edu

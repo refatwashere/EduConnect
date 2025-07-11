@@ -4,7 +4,7 @@
 **Version:** 2.0.0  
 **Status:** Deployed to Vercel - Ready for Feature Development  
 **Last Updated:** December 2024  
-**Live URL:** https://educonnect-refat.vercel.app
+**Live URL:** https://edu-connect-delta.vercel.app
 
 ---
 

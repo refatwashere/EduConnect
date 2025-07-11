@@ -5,7 +5,7 @@ Get up and running with EduConnect in just 5 minutes!
 ## 🌐 Access Live Application
 
 ### Step 1: Visit the App
-Go to: **[EduConnect Live App](https://educonnect-refat.vercel.app)**
+Go to: **[EduConnect Live App](https://edu-connect-delta.vercel.app)**
 
 ### Step 2: Login
 Use the default credentials:

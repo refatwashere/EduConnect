@@ -199,7 +199,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 🔗 Links
 
-- **Live Application**: https://educonnect-refat.vercel.app
+- **Live Application**: https://edu-connect-delta.vercel.app
 - **GitHub Repository**: https://github.com/refatwashere/EduConnect
 - **Documentation**: [./docs](./docs)
 - **Project Status**: [./project.md](./project.md)

@@ -12,7 +12,7 @@
 [![Vercel](https://img.shields.io/badge/Vercel-black?style=flat-square&logo=vercel)](https://vercel.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🚀 Live Demo](https://educonnect-refat.vercel.app) • [📖 Documentation](./docs) • [🐛 Report Bug](https://github.com/refatwashere/EduConnect/issues) • [💡 Request Feature](https://github.com/refatwashere/EduConnect/issues)
+[🚀 Live Demo](https://edu-connect-delta.vercel.app) • [📖 Documentation](./docs) • [🐛 Report Bug](https://github.com/refatwashere/EduConnect/issues) • [💡 Request Feature](https://github.com/refatwashere/EduConnect/issues)
 
 </div>
 
@@ -38,7 +38,7 @@ EduConnect is a next-generation educational management platform that revolutioni
 
 ### 🌐 Production Access
 
-- **Live URL**: https://educonnect-refat.vercel.app
+- **Live URL**: https://edu-connect-delta.vercel.app
 - **Status**: ✅ **LIVE IN PRODUCTION**
 - **Performance**: 95+ Lighthouse Score
 - **Uptime**: 99.9% (Vercel SLA)
@@ -134,7 +134,7 @@ graph TB
 
 ### 🌐 Access Live Application
 
-1. Visit: https://educonnect-refat.vercel.app
+1. Visit: https://edu-connect-delta.vercel.app
 2. Login with: `teacher@school.edu` / `password`
 3. Explore the dashboard and features
 
@@ -316,10 +316,10 @@ npm run dev
 
 Need help? We're here for you!
 
-- 🌐 **Live Application**: https://educonnect-refat.vercel.app
+- 🌐 **Live Application**: https://edu-connect-delta.vercel.app
 - 📖 **Documentation**: Check our comprehensive guides
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/refatwashere/educonnect/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/refatwashere/educonnect/discussions)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/refatwashere/EduConnect/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/refatwashere/EduConnect/discussions)
 - 💬 **Community**: Join our development community
 
 ---
@@ -340,18 +340,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div style="text-align: center;">
+<div align="center">
 
-```md
+**🎉 NOW LIVE IN PRODUCTION! 🎉**
 
-## **🎉 NOW LIVE IN PRODUCTION! 🎉**
+**Made with ❤️ by the EduConnect Team**
 
-## **Made with ❤️ by the EduConnect Team**
+[🚀 Visit Live App](https://edu-connect-delta.vercel.app) • [⭐ Star on GitHub](https://github.com/refatwashere/EduConnect) • [🐦 Follow Updates](https://facebook.com/educonnect)
 
-[🚀 Visit Live App](https://educonnect-refat.vercel.app) • [⭐ Star on GitHub](https://github.com/refatwashere/EduConnect) • [🐦 Follow Updates](https://facebook.com/educonnect)
-
-### **Ready to revolutionize education? The platform is live and ready for users! 🎓✨**
-
-```
+**Ready to revolutionize education? The platform is live and ready for users! 🎓✨**
 
 </div>
