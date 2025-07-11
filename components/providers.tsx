@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 import { useAuthStore } from '@/stores/auth-store'
-import { supabase } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase-client'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const { initialize, setUser, setTeacher } = useAuthStore()
