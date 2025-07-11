@@ -1,4 +1,5 @@
 ```markdown
+
 ---
 
 # SMIS - WEB PORTAL Project Document
@@ -121,6 +122,7 @@ Based on the structure implied by the main `App` component managing different sc
 #### Inferred Project Tree
 
 ```
+
 smis-web-portal-frontend/
 ├── public/
 │   └── index.html # Standard HTML entry point for React app
@@ -131,6 +133,7 @@ smis-web-portal-frontend/
 │   └── reportWebVitals.js # Standard Create React App file [Inferred standard CRA structure]
 ├── package.json # Project dependencies (React, react-dom, etc.) [Inferred standard CRA structure]
 └── README.md # Project description [Inferred standard practice]
+
 ```
 *Note: The exact file structure for components (e.g., separate files for each screen) is not explicitly detailed in the sources, but placing them within `App.js` is shown in source. The structure above represents a standard practice for organizing a React project.*
 
@@ -867,6 +870,7 @@ smis-web-portal-backend/
 ├── package.json # Project dependencies and scripts [Inferred from tech stack]
 └── README.md # Project description and setup instructions [Inferred standard practice]
 ```
+
 *Note: Although source shows a more structured directory for a backend, that structure corresponds to a MongoDB implementation. The provided code and project description in other sources consistently use PostgreSQL, and the backend code for this is presented as a single `server.js` file. The structure above reflects the PostgreSQL implementation shown.*
 
 #### Full Backend Code (server.js)
@@ -1225,12 +1229,14 @@ cd smis-web-portal-backend
 ```
 
 2. **Install dependencies:**
+
 ```bash
 npm install
 ```
 
 3. **Create a `.env` file:**
 Create a file named `.env` in the root directory and add your database connection string and JWT secret:
+
 ```dotenv
 DATABASE_URL=your_postgresql_connection_string
 JWT_SECRET=your_super_secret_key
@@ -1240,16 +1246,21 @@ PORT=3001
 4. **Run the database setup function (if needed):** The `setupDatabase` function in `server.js` is designed to create tables and a default 'teacher' user if they don't exist when the server starts. Ensure your `DATABASE_URL` points to a valid PostgreSQL database.
 
 5. **Run the server:**
+
 * In development (with nodemon):
+
 ```bash
 npm run dev
 ```
+
 * In production:
+
 ```bash
 npm start
 ```
 
 The backend will start and listen on the specified PORT (defaulting to 3001).
+
 ```
 
 ---
@@ -1508,6 +1519,7 @@ WITH CHECK (EXISTS ( --
 ### Frontend Setup (Using React)
 
 The frontend is a single-page application built with React that communicates with the Supabase backend.
+
 * **Step 2.1: Set up a Local React Environment:** If needed, create a new React project using `npx create-react-app smis-portal`, navigate into the folder, and install necessary libraries like `lucide-react` (`npm install lucide-react`).
 * **Step 2.2: Create Environment Variables:** Create a `.env` file in the root of the project. Add your Supabase URL and anon key: `REACT_APP_SUPABASE_URL=https://your-project-id.supabase.co` and `REACT_APP_SUPABASE_ANON_KEY=your-public-anon-key-here`.
 * **Step 2.3: Frontend Application Code:** Replace the entire content of `src/App.js` with the provided code. This code dynamically loads the Supabase library, initializes the client, handles authentication state changes, fetches data (classes, materials, students, updates) using the Supabase client, and implements event handlers for CRUD operations. It includes state management for loading, errors, navigation, and modals.
@@ -1521,10 +1533,12 @@ After setup, go to your terminal in the project directory and run `npm start`. T
 ### The Next Steps
 
 Potential enhancements include:
+
 * **Edit and Delete Functionality:** Add logic using `supabase.from('table').update()` or `.delete()` calls.
 * **File Uploads:** Use Supabase Storage for uploading files as materials.
 * **Real-time Updates:** Implement Supabase Realtime Subscriptions for instant data updates across devices.
 * **Improved UI/UX:** Add confirmation dialogs, better loading states, and enhance design.
 * **Student/Parent View:** Create a read-only view requiring more advanced RLS policies.
 * **Search and Filtering:** Add search capabilities.
+
 ```

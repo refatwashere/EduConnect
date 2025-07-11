@@ -1,41 +1,59 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { useAuthStore } from '@/stores/auth-store'
-import { LogOut, User } from 'lucide-react'
+import { useToast } from '@/hooks/use-toast'
+import { APP_CONFIG, ROUTES } from '@/lib/constants'
 
 export function Header() {
-  const { teacher, signOut } = useAuthStore()
+  const { user, teacher, signOut } = useAuthStore()
+  const { toast } = useToast()
+  const router = useRouter()
 
   const handleSignOut = async () => {
-    await signOut()
+    try {
+      await signOut()
+      toast({
+        title: 'Success',
+        description: 'Signed out successfully'
+      })
+      router.push(ROUTES.HOME)
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to sign out',
+        variant: 'destructive'
+      })
+    }
   }
 
   return (
-    <header className="bg-white border-b border-gray-200 px-6 py-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-blue-600">EduConnect</h1>
-          <p className="text-sm text-gray-600">Educational Management Platform</p>
-        </div>
-        
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <User className="h-5 w-5 text-gray-500" />
-            <span className="text-sm font-medium text-gray-700">
-              {teacher?.name || 'Teacher'}
-            </span>
+    <header className="bg-white border-b border-gray-200">
+      <div className="px-6 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <h1 className="text-xl font-bold text-gray-900">{APP_CONFIG.name}</h1>
+            <span className="text-sm text-gray-500">v{APP_CONFIG.version}</span>
           </div>
           
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleSignOut}
-            className="flex items-center space-x-2"
-          >
-            <LogOut className="h-4 w-4" />
-            <span>Sign Out</span>
-          </Button>
+          <div className="flex items-center space-x-4">
+            {teacher && (
+              <div className="text-right">
+                <p className="text-sm font-medium text-gray-900">{teacher.name}</p>
+                <p className="text-xs text-gray-500">{user?.email}</p>
+              </div>
+            )}
+            
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleSignOut}
+              className="text-gray-600 hover:text-gray-900"
+            >
+              Sign Out
+            </Button>
+          </div>
         </div>
       </div>
     </header>
