@@ -2,7 +2,7 @@
 node_modules/
 .pnp
 .pnp.js
-
+.amazonq
 # Production builds
 .next/
 out/
