@@ -199,8 +199,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 🔗 Links
 
-- **Live Application**: [Your Vercel Deployment URL]
-- **GitHub Repository**: [Repository URL]
+- **Live Application**: https://educonnect-refat.vercel.app
+- **GitHub Repository**: https://github.com/refatwashere/EduConnect
 - **Documentation**: [./docs](./docs)
 - **Project Status**: [./project.md](./project.md)
 - **Next Steps**: [./NEXT-STEPS.md](./NEXT-STEPS.md)

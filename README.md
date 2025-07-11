@@ -12,7 +12,7 @@
 [![Vercel](https://img.shields.io/badge/Vercel-black?style=flat-square&logo=vercel)](https://vercel.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🚀 Live Demo](https://your-vercel-url.vercel.app) • [📖 Documentation](./docs) • [🐛 Report Bug](https://github.com/educonnect/issues) • [💡 Request Feature](https://github.com/educonnect/issues)
+[🚀 Live Demo](https://educonnect-refat.vercel.app) • [📖 Documentation](./docs) • [🐛 Report Bug](https://github.com/refatwashere/EduConnect/issues) • [💡 Request Feature](https://github.com/refatwashere/EduConnect/issues)
 
 </div>
 
@@ -38,7 +38,7 @@ EduConnect is a next-generation educational management platform that revolutioni
 
 ### 🌐 Production Access
 
-- **Live URL**: [Your Vercel Deployment URL]
+- **Live URL**: https://educonnect-refat.vercel.app
 - **Status**: ✅ **LIVE IN PRODUCTION**
 - **Performance**: 95+ Lighthouse Score
 - **Uptime**: 99.9% (Vercel SLA)
@@ -134,7 +134,7 @@ graph TB
 
 ### 🌐 Access Live Application
 
-1. Visit: [Your Vercel Deployment URL]
+1. Visit: https://educonnect-refat.vercel.app
 2. Login with: `teacher@school.edu` / `password`
 3. Explore the dashboard and features
 
@@ -142,7 +142,7 @@ graph TB
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/educonnect.git
+git clone https://github.com/refatwashere/EduConnect.git
 cd educonnect
 
 # Install dependencies
@@ -270,7 +270,7 @@ We welcome contributions! Here's how to get started:
 ### 2. Set Up Local Development
 
 ```bash
-git clone [www.github.com/refatwashere/educonnect.git]
+git clone https://github.com/refatwashere/EduConnect.git
 cd educonnect
 npm install
 cp .env.example .env.local
@@ -316,7 +316,7 @@ npm run dev
 
 Need help? We're here for you!
 
-- 🌐 **Live Application**: [Your Vercel URL]
+- 🌐 **Live Application**: https://educonnect-refat.vercel.app
 - 📖 **Documentation**: Check our comprehensive guides
 - 🐛 **Bug Reports**: [GitHub Issues](https://github.com/refatwashere/educonnect/issues)
 - 💡 **Feature Requests**: [GitHub Discussions](https://github.com/refatwashere/educonnect/discussions)
@@ -348,7 +348,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## **Made with ❤️ by the EduConnect Team**
 
-[🚀 Visit Live App](https://your-vercel-url.vercel.app) • [⭐ Star on GitHub](https://github.com/refatwashere/educonnect) • [🐦 Follow Updates](https://facebook.com/educonnect)
+[🚀 Visit Live App](https://educonnect-refat.vercel.app) • [⭐ Star on GitHub](https://github.com/refatwashere/EduConnect) • [🐦 Follow Updates](https://facebook.com/educonnect)
 
 ### **Ready to revolutionize education? The platform is live and ready for users! 🎓✨**
 

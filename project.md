@@ -4,7 +4,7 @@
 **Version:** 2.0.0  
 **Status:** Deployed to Vercel - Ready for Feature Development  
 **Last Updated:** December 2024  
-**Live URL:** [Your Vercel Deployment URL]
+**Live URL:** https://educonnect-refat.vercel.app
 
 ---
 
@@ -282,7 +282,7 @@ npm run db:generate     # Generate Supabase types
 ### 2. Local Development Setup
 
 ```bash
-git clone [your-repo-url]
+git clone https://github.com/refatwashere/EduConnect.git
 cd educonnect
 npm install
 cp .env.example .env.local

@@ -3,7 +3,7 @@
 **Last Updated:** December 2024  
 **Version:** 2.0.0  
 **Phase:** Deployed to Production - Feature Development Ready  
-**Live URL:** [Your Vercel Deployment URL]
+**Live URL:** https://educonnect-refat.vercel.app
 
 ---
 
