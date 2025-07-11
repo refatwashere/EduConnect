@@ -24,23 +24,31 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   signIn: async (email: string, password: string) => {
     set({ isLoading: true })
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      const response = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
       })
       
-      if (error) throw error
+      const result = await response.json()
       
-      if (data.user) {
-        // Fetch teacher profile
-        const { data: teacherData } = await supabase
-          .from('teachers')
-          .select('*')
-          .eq('id', data.user.id)
-          .single()
-        
-        set({ user: data.user, teacher: teacherData })
+      if (!result.success) {
+        throw new Error(result.message || 'Login failed')
       }
+      
+      const mockTeacher = {
+        id: result.user.id,
+        name: result.user.name,
+        email: result.user.email,
+        subject: 'Mathematics',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }
+      
+      set({ 
+        user: result.user as any, 
+        teacher: mockTeacher
+      })
     } catch (error) {
       console.error('Sign in error:', error)
       throw error
